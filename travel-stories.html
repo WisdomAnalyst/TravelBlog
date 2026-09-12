@@ -69,6 +69,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 40px;
+            border: 3px solid #3498db;
         }
 
         /* Table header styling - makes header row stand out */
@@ -90,6 +91,12 @@
         td {
             padding: 15px;
             border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+
+        /* Remove border from last column */
+        td:last-child {
+            border-right: none;
         }
 
         /* Alternating row colors - makes table easier to read */
@@ -115,6 +122,13 @@
             font-size: 1.1em;
         }
 
+        /* Image container styling - ensures proper alignment */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* Image styling - sets size and appearance of attraction images */
         .attraction-image {
             width: 250px;
@@ -122,14 +136,22 @@
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            display: block;
         }
 
         /* Image hover effect - reduces opacity when mouse hovers over image */
         .attraction-image:hover {
             opacity: 0.7;
+            transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Link styling for images - removes default link styling */
+        .image-link {
+            text-decoration: none;
+            display: inline-block;
         }
 
         /* Detail section styling - creates sections for destination information */
@@ -148,6 +170,8 @@
             color: #2c3e50;
             font-size: 1.5em;
             margin-bottom: 15px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
         }
 
         /* Detail section paragraph styling */
@@ -157,10 +181,16 @@
             line-height: 1.8;
         }
 
+        /* Strong text styling in detail sections */
+        .detail-section strong {
+            color: #2c3e50;
+        }
+
         /* Highlights list styling - creates bullet points for key info */
         .highlights {
             margin-top: 15px;
             margin-left: 20px;
+            list-style-type: disc;
         }
 
         /* Highlights list item styling */
@@ -203,6 +233,15 @@
             background-color: #34495e;
         }
 
+        /* Gallery section styling */
+        .gallery-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
             h1 {
@@ -225,6 +264,10 @@
             .detail-section {
                 padding: 20px;
             }
+
+            .destination-name {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
@@ -241,60 +284,68 @@
         <a href="index.html" class="nav-link">← Back to Homepage</a>
 
         <!-- Travel destinations gallery section -->
-        <h2>🌟 Featured Destinations</h2>
+        <section class="gallery-section">
+            <h2>🌟 Featured Destinations</h2>
 
-        <!-- Table displaying destinations and attraction images -->
-        <table>
-            <!-- Table header row -->
-            <thead>
-                <tr>
-                    <th>Destination</th>
-                    <th>Attraction (Click to Learn More)</th>
-                </tr>
-            </thead>
+            <!-- Table displaying destinations and attraction images -->
+            <table>
+                <!-- Table header row -->
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Attraction (Click to Learn More)</th>
+                    </tr>
+                </thead>
 
-            <!-- Table body with destination rows -->
-            <tbody>
-                <!-- Paris row -->
-                <tr>
-                    <td><span class="destination-name">Paris, France</span></td>
-                    <td>
-                        <!-- Clickable image that links to Paris detail section -->
-                        <a href="#paris-details">
-                            <img src="https://via.placeholder.com/250x200?text=Eiffel+Tower" 
-                                 alt="Eiffel Tower in Paris" 
-                                 class="attraction-image">
-                        </a>
-                    </td>
-                </tr>
+                <!-- Table body with destination rows -->
+                <tbody>
+                    <!-- Paris row -->
+                    <tr>
+                        <td><span class="destination-name">Paris, France</span></td>
+                        <td>
+                            <!-- Clickable image that links to Paris detail section -->
+                            <div class="image-container">
+                                <a href="#paris-details" class="image-link">
+                                    <img src="https://via.placeholder.com/250x200?text=Eiffel+Tower" 
+                                         alt="Eiffel Tower in Paris - Click to learn more" 
+                                         class="attraction-image">
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
 
-                <!-- Rome row -->
-                <tr>
-                    <td><span class="destination-name">Rome, Italy</span></td>
-                    <td>
-                        <!-- Clickable image that links to Rome detail section -->
-                        <a href="#rome-details">
-                            <img src="https://via.placeholder.com/250x200?text=Colosseum" 
-                                 alt="Colosseum in Rome" 
-                                 class="attraction-image">
-                        </a>
-                    </td>
-                </tr>
+                    <!-- Rome row -->
+                    <tr>
+                        <td><span class="destination-name">Rome, Italy</span></td>
+                        <td>
+                            <!-- Clickable image that links to Rome detail section -->
+                            <div class="image-container">
+                                <a href="#rome-details" class="image-link">
+                                    <img src="https://via.placeholder.com/250x200?text=Colosseum" 
+                                         alt="Colosseum in Rome - Click to learn more" 
+                                         class="attraction-image">
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
 
-                <!-- New York row -->
-                <tr>
-                    <td><span class="destination-name">New York, USA</span></td>
-                    <td>
-                        <!-- Clickable image that links to New York detail section -->
-                        <a href="#newyork-details">
-                            <img src="https://via.placeholder.com/250x200?text=Statue+of+Liberty" 
-                                 alt="Statue of Liberty in New York" 
-                                 class="attraction-image">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <!-- New York row -->
+                    <tr>
+                        <td><span class="destination-name">New York, USA</span></td>
+                        <td>
+                            <!-- Clickable image that links to New York detail section -->
+                            <div class="image-container">
+                                <a href="#newyork-details" class="image-link">
+                                    <img src="https://via.placeholder.com/250x200?text=Statue+of+Liberty" 
+                                         alt="Statue of Liberty in New York - Click to learn more" 
+                                         class="attraction-image">
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
         <!-- PARIS DETAIL SECTION - Displays when user clicks Eiffel Tower image -->
         <section id="paris-details" class="detail-section">
