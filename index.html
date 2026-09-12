@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog - Explore the World</title>
+    
+    <!-- Embedded CSS styling for the homepage -->
+    <style>
+        /* Reset default browser styles for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling - sets background and font for entire page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Header styling - creates title section at top of page */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main heading styling */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Subtitle styling */
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Container for number blocks - uses flexbox for horizontal layout */
+        .number-blocks-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* Individual number block styling - creates clickable colored boxes */
+        .number-block {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        /* Block 1 - Europe (Blue) */
+        .block-1 {
+            background-color: #3498db;
+        }
+
+        /* Block 2 - Asia (Orange) */
+        .block-2 {
+            background-color: #e74c3c;
+        }
+
+        /* Block 3 - America (Green) */
+        .block-3 {
+            background-color: #2ecc71;
+        }
+
+        /* Block 4 - Africa (Purple) */
+        .block-4 {
+            background-color: #9b59b6;
+        }
+
+        /* Hover effect - enlarges block and adds shadow when mouse hovers over it */
+        .number-block:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main content container - holds all continent sections */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Continent section styling - creates distinct sections for each continent */
+        .continent-section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 20px;
+        }
+
+        /* Continent heading styling - makes continent names stand out */
+        .continent-section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* Ordered list styling for countries - creates numbered list */
+        .continent-section ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Country name styling - makes country names bold and distinct */
+        .country-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Unordered list styling for cities - creates bullet points */
+        .continent-section ul {
+            margin-left: 40px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* City name styling - makes cities slightly different from countries */
+        .city-name {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        /* List item styling - adds spacing between items */
+        .continent-section li {
+            margin-bottom: 5px;
+        }
+
+        /* Back to top button styling - helps users navigate back to number blocks */
+        .back-to-top {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Back to top button hover effect */
+        .back-to-top:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .number-block {
+                width: 80px;
+                height: 80px;
+                font-size: 2em;
+            }
+
+            .continent-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with title -->
+    <header>
+        <h1>🌍 Travel Blog</h1>
+        <p class="subtitle">Explore Destinations Around the World</p>
+    </header>
+
+    <!-- Main content area -->
+    <main class="content-container">
+        <!-- Number blocks section - users click these to jump to continents -->
+        <div class="number-blocks-container">
+            <!-- Block 1 links to Europe section -->
+            <a href="#europe" class="number-block block-1">1</a>
+            <!-- Block 2 links to Asia section -->
+            <a href="#asia" class="number-block block-2">2</a>
+            <!-- Block 3 links to America section -->
+            <a href="#america" class="number-block block-3">3</a>
+            <!-- Block 4 links to Africa section -->
+            <a href="#africa" class="number-block block-4">4</a>
+        </div>
+
+        <!-- EUROPE SECTION - Displays when user clicks block 1 -->
+        <section id="europe" class="continent-section">
+            <h2>🇪🇺 Europe</h2>
+            
+            <!-- Ordered list of European countries -->
+            <ol>
+                <!-- France with its cities -->
+                <li>
+                    <span class="country-name">France</span>
+                    <ul>
+                        <li><span class="city-name">Paris</span></li>
+                        <li><span class="city-name">Lyon</span></li>
+                        <li><span class="city-name">Marseille</span></li>
+                    </ul>
+                </li>
+
+                <!-- Italy with its cities -->
+                <li>
+                    <span class="country-name">Italy</span>
+                    <ul>
+                        <li><span class="city-name">Rome</span></li>
+                        <li><span class="city-name">Venice</span></li>
+                        <li><span class="city-name">Florence</span></li>
+                    </ul>
+                </li>
+
+                <!-- Greece with its cities -->
+                <li>
+                    <span class="country-name">Greece</span>
+                    <ul>
+                        <li><span class="city-name">Athens</span></li>
+                        <li><span class="city-name">Santorini</span></li>
+                        <li><span class="city-name">Mykonos</span></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- Link to return to top -->
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ASIA SECTION - Displays when user clicks block 2 -->
+        <section id="asia" class="continent-section">
+            <h2>🏯 Asia</h2>
+            
+            <!-- Ordered list of Asian countries -->
+            <ol>
+                <!-- Japan with its cities -->
+                <li>
+                    <span class="country-name">Japan</span>
+                    <ul>
+                        <li><span class="city-name">Tokyo</span></li>
+                        <li><span class="city-name">Kyoto</span></li>
+                        <li><span class="city-name">Osaka</span></li>
+                    </ul>
+                </li>
+
+                <!-- China with its cities -->
+                <li>
+                    <span class="country-name">China</span>
+                    <ul>
+                        <li><span class="city-name">Beijing</span></li>
+                        <li><span class="city-name">Shanghai</span></li>
+                        <li><span class="city-name">Xi'an</span></li>
+                    </ul>
+                </li>
+
+                <!-- India with its cities -->
+                <li>
+                    <span class="country-name">India</span>
+                    <ul>
+                        <li><span class="city-name">New Delhi</span></li>
+                        <li><span class="city-name">Mumbai</span></li>
+                        <li><span class="city-name">Jaipur</span></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- Link to return to top -->
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+        </section>
+
+        <!-- AMERICA SECTION - Displays when user clicks block 3 -->
+        <section id="america" class="continent-section">
+            <h2>🗽 America</h2>
+            
+            <!-- Ordered list of American countries -->
+            <ol>
+                <!-- USA with its cities -->
+                <li>
+                    <span class="country-name">United States</span>
+                    <ul>
+                        <li><span class="city-name">New York City</span></li>
+                        <li><span class="city-name">Los Angeles</span></li>
+                        <li><span class="city-name">Chicago</span></li>
+                    </ul>
+                </li>
+
+                <!-- Brazil with its cities -->
+                <li>
+                    <span class="country-name">Brazil</span>
+                    <ul>
+                        <li><span class="city-name">Rio de Janeiro</span></li>
+                        <li><span class="city-name">São Paulo</span></li>
+                        <li><span class="city-name">Salvador</span></li>
+                    </ul>
+                </li>
+
+                <!-- Canada with its cities -->
+                <li>
+                    <span class="country-name">Canada</span>
+                    <ul>
+                        <li><span class="city-name">Toronto</span></li>
+                        <li><span class="city-name">Vancouver</span></li>
+                        <li><span class="city-name">Montreal</span></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- Link to return to top -->
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+        </section>
+
+        <!-- AFRICA SECTION - Displays when user clicks block 4 -->
+        <section id="africa" class="continent-section">
+            <h2>🦁 Africa</h2>
+            
+            <!-- Ordered list of African countries -->
+            <ol>
+                <!-- South Africa with its cities -->
+                <li>
+                    <span class="country-name">South Africa</span>
+                    <ul>
+                        <li><span class="city-name">Cape Town</span></li>
+                        <li><span class="city-name">Johannesburg</span></li>
+                        <li><span class="city-name">Durban</span></li>
+                    </ul>
+                </li>
+
+                <!-- Egypt with its cities -->
+                <li>
+                    <span class="country-name">Egypt</span>
+                    <ul>
+                        <li><span class="city-name">Cairo</span></li>
+                        <li><span class="city-name">Luxor</span></li>
+                        <li><span class="city-name">Sharm El Sheikh</span></li>
+                    </ul>
+                </li>
+
+                <!-- Morocco with its cities -->
+                <li>
+                    <span class="country-name">Morocco</span>
+                    <ul>
+                        <li><span class="city-name">Marrakech</span></li>
+                        <li><span class="city-name">Casablanca</span></li>
+                        <li><span class="city-name">Fez</span></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- Link to return to top -->
+            <a href="#" class="back-to-top">↑ Back to Top</a>
+        </section>
+    </main>
+</body>
+</html>
