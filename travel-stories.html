@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Stories - Destination Guide</title>
+    <title>Travel Stories - Travel Blog</title>
     
-    <!-- Embedded CSS styling for travel stories page -->
     <style>
-        /* Reset default browser styles for consistency */
+        /* Reset default browser styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styling - sets background and font for entire page */
+        /* Body styling */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f5f5f5;
@@ -23,202 +21,152 @@
             line-height: 1.6;
         }
 
-        /* Header styling - creates title section at top of page */
+        /* Header styling */
         header {
             text-align: center;
             margin-bottom: 40px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Main heading styling */
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
 
-        /* Subtitle styling */
         .subtitle {
             font-size: 1.1em;
             opacity: 0.9;
         }
 
-        /* Main content container - holds table and detail sections */
+        /* Main content container */
         .content-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* Section heading styling */
-        h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            margin-top: 30px;
-        }
-
-        /* Gallery section wrapper - provides background and styling */
-        .gallery-section {
+        /* Table section styling */
+        .table-section {
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        /* Table styling - creates the main gallery table */
+        .table-section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* TABLE STYLING - Creates visually appealing table with colors and spacing */
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
-            border: 3px solid #3498db;
-            border-radius: 10px;
-            overflow: hidden;
+            margin-bottom: 20px;
         }
 
-        /* Table header styling - makes header row stand out */
-        thead {
-            background-color: #2c3e50;
+        /* Table header styling - makes headers bold and distinct */
+        table thead {
+            background-color: #3498db;
             color: white;
         }
 
-        /* Table header cell styling - bold and centered */
-        th {
+        table th {
             padding: 15px;
             text-align: left;
             font-weight: bold;
             font-size: 1.1em;
-            border-bottom: 3px solid #3498db;
+            border: 2px solid #2980b9;
         }
 
-        /* Table data cell styling - adds padding and borders */
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-            vertical-align: middle;
-            text-align: center;
-        }
-
-        /* Remove border from last column */
-        td:last-child {
-            border-right: none;
-        }
-
-        /* Alternating row colors - makes table easier to read */
-        tbody tr:nth-child(odd) {
+        /* Table body styling - alternating row colors for readability */
+        table tbody tr:nth-child(odd) {
             background-color: #ecf0f1;
         }
 
-        /* Alternating row colors - different color for even rows */
-        tbody tr:nth-child(even) {
+        table tbody tr:nth-child(even) {
             background-color: #ffffff;
         }
 
-        /* Row hover effect - highlights row when mouse hovers */
-        tbody tr:hover {
-            background-color: #d5dbdb;
-            transition: background-color 0.3s ease;
+        /* Table cell styling - adds padding and borders */
+        table td {
+            padding: 15px;
+            border: 2px solid #bdc3c7;
+            vertical-align: middle;
         }
 
-        /* Destination name styling - makes destination names bold */
+        /* Destination name styling */
         .destination-name {
             font-weight: bold;
             color: #2c3e50;
             font-size: 1.1em;
         }
 
-        /* Image container styling - ensures proper alignment and sizing */
+        /* IMAGE CONTAINER - Wraps the image link */
         .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 250px;
-            height: 200px;
-            margin: 0 auto;
-        }
-
-        /* Link styling for images - removes default link styling */
-        .image-link {
-            text-decoration: none;
             display: inline-block;
             width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        /* Image styling - sets size and appearance of attraction images */
+        /* IMAGE LINK - Makes the entire image clickable */
+        .image-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* IMAGE STYLING - CRITICAL FOR DISPLAY */
         .attraction-image {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
+            width: 100%;
+            max-width: 300px;
             height: auto;
-            object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
             transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            display: block;
+            border: 3px solid #3498db;
         }
 
-        /* Image hover effect - reduces opacity when mouse hovers over image */
+        /* Image hover effect - changes opacity when mouse hovers over image */
         .attraction-image:hover {
             opacity: 0.7;
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-color: #2980b9;
         }
 
-        /* Detail section styling - creates sections for destination information */
-        .detail-section {
+        /* Information section styling - displays detailed info about each destination */
+        .info-section {
             background-color: white;
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             scroll-margin-top: 20px;
-            border-left: 5px solid #3498db;
         }
 
-        /* Detail section heading styling */
-        .detail-section h3 {
+        .info-section h3 {
             color: #2c3e50;
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 15px;
-            border-bottom: 2px solid #e74c3c;
-            padding-bottom: 10px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
         }
 
-        /* Detail section paragraph styling */
-        .detail-section p {
+        .info-section p {
             color: #555;
-            margin-bottom: 10px;
+            font-size: 1em;
             line-height: 1.8;
+            margin-bottom: 10px;
         }
 
-        /* Strong text styling in detail sections */
-        .detail-section strong {
-            color: #2c3e50;
-        }
-
-        /* Highlights list styling - creates bullet points for key info */
-        .highlights {
-            margin-top: 15px;
-            margin-left: 20px;
-            list-style-type: disc;
-        }
-
-        /* Highlights list item styling */
-        .highlights li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        /* Back to gallery button styling - helps users navigate back */
-        .back-to-gallery {
+        /* Back to top button styling */
+        .back-to-top {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
@@ -229,26 +177,8 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Back to gallery button hover effect */
-        .back-to-gallery:hover {
+        .back-to-top:hover {
             background-color: #2980b9;
-        }
-
-        /* Navigation link styling - makes links look like buttons */
-        .nav-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Navigation link hover effect */
-        .nav-link:hover {
-            background-color: #34495e;
         }
 
         /* Responsive design for smaller screens */
@@ -261,26 +191,12 @@
                 font-size: 0.9em;
             }
 
-            th, td {
+            table th, table td {
                 padding: 10px;
             }
 
-            .image-container {
-                width: 150px;
-                height: 120px;
-            }
-
             .attraction-image {
-                width: 150px;
-                height: 120px;
-            }
-
-            .detail-section {
-                padding: 20px;
-            }
-
-            .destination-name {
-                font-size: 0.95em;
+                max-width: 200px;
             }
         }
     </style>
@@ -294,55 +210,140 @@
 
     <!-- Main content area -->
     <main class="content-container">
-        <!-- Navigation link back to homepage -->
-        <a href="index.html" class="nav-link">← Back to Homepage</a>
-
-        <!-- Travel destinations gallery section -->
-        <section class="gallery-section">
-            <h2>🌟 Featured Destinations</h2>
-
+        <!-- Table section with travel destinations and images -->
+        <section class="table-section">
+            <h2>Travel Destinations</h2>
+            
             <!-- Table displaying destinations and attraction images -->
             <table>
                 <!-- Table header row -->
                 <thead>
                     <tr>
                         <th>Destination</th>
-                        <th>Attraction (Click to Learn More)</th>
+                        <th>Attraction</th>
                     </tr>
                 </thead>
 
-                <!-- Table body with destination rows -->
+                <!-- Table body with destination data -->
                 <tbody>
-                    <!-- Paris row -->
+                    <!-- Paris row with Eiffel Tower image -->
                     <tr>
                         <td><span class="destination-name">Paris, France</span></td>
                         <td>
-                            <!-- Clickable image that links to Paris detail section -->
+                            <!-- Image container for proper layout -->
                             <div class="image-container">
-                                <a href="#paris-details" class="image-link">
-                                    <img src="https://picsum.photos/250/200?random=1" 
-                                         alt="Eiffel Tower in Paris - Click to learn more" 
-                                         class="attraction-image">
+                                <!-- Clickable link that jumps to Paris info section -->
+                                <a href="#paris-info" class="image-link">
+                                    <img 
+                                        src="images/eiffel-tower.jpg" 
+                                        alt="Eiffel Tower in Paris - Click to learn more" 
+                                        class="attraction-image"
+                                    >
                                 </a>
                             </div>
                         </td>
                     </tr>
 
-                    <!-- Rome row -->
+                    <!-- Rome row with Colosseum image -->
                     <tr>
                         <td><span class="destination-name">Rome, Italy</span></td>
                         <td>
-                            <!-- Clickable image that links to Rome detail section -->
+                            <!-- Image container for proper layout -->
                             <div class="image-container">
-                                <a href="#rome-details" class="image-link">
-                                    <img src="https://picsum.photos/250/200?random=2" 
-                                         alt="Colosseum in Rome - Click to learn more" 
-                                         class="attraction-image">
+                                <!-- Clickable link that jumps to Rome info section -->
+                                <a href="#rome-info" class="image-link">
+                                    <img 
+                                        src="images/colosseum.jpg" 
+                                        alt="Colosseum in Rome - Click to learn more" 
+                                        class="attraction-image"
+                                    >
                                 </a>
                             </div>
                         </td>
                     </tr>
 
-                    <!-- New York row -->
+                    <!-- New York row with Statue of Liberty image -->
                     <tr>
-                        <td><span class="destination-name">New York, USA</
+                        <td><span class="destination-name">New York, USA</span></td>
+                        <td>
+                            <!-- Image container for proper layout -->
+                            <div class="image-container">
+                                <!-- Clickable link that jumps to New York info section -->
+                                <a href="#newyork-info" class="image-link">
+                                    <img 
+                                        src="images/statue-liberty.jpg" 
+                                        alt="Statue of Liberty in New York - Click to learn more" 
+                                        class="attraction-image"
+                                    >
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- PARIS INFORMATION SECTION - Displays when user clicks Eiffel Tower image -->
+        <section id="paris-info" class="info-section">
+            <h3>🗼 Paris, France - Eiffel Tower</h3>
+            <p>
+                <strong>Overview:</strong> The Eiffel Tower is an iconic iron lattice tower located on the Champ de Mars in Paris. 
+                Built in 1889 for the World's Fair, it has become the most recognizable symbol of Paris and one of the most visited 
+                monuments in the world.
+            </p>
+            <p>
+                <strong>History:</strong> Designed by Gustave Eiffel, the tower was initially intended to be temporary but has 
+                remained a permanent fixture. It stands 330 meters (1,083 feet) tall and was the world's tallest man-made structure 
+                until 1930.
+            </p>
+            <p>
+                <strong>Visitor Experience:</strong> Visitors can take elevators or stairs to three levels, each offering spectacular 
+                views of Paris. The tower is beautifully illuminated at night and attracts millions of visitors annually.
+            </p>
+            <a href="#" class="back-to-top">↑ Back to Table</a>
+        </section>
+
+        <!-- ROME INFORMATION SECTION - Displays when user clicks Colosseum image -->
+        <section id="rome-info" class="info-section">
+            <h3>🏛️ Rome, Italy - Colosseum</h3>
+            <p>
+                <strong>Overview:</strong> The Colosseum, also known as the Flavian Amphitheatre, is an ancient amphitheater in 
+                Rome, Italy. It is one of the most impressive works of Roman architecture and engineering, and one of the most 
+                recognizable structures of ancient Rome.
+            </p>
+            <p>
+                <strong>History:</strong> Construction began under Emperor Vespasian in 72 AD and was completed under his son 
+                Titus in 80 AD. The amphitheater could hold approximately 50,000 spectators and was used for gladiatorial contests 
+                and public spectacles.
+            </p>
+            <p>
+                <strong>Visitor Experience:</strong> Today, the Colosseum stands as a testament to Roman engineering and is one of 
+                the most visited tourist attractions in Rome. Visitors can explore the ancient structure and imagine the grand events 
+                that took place within its walls.
+            </p>
+            <a href="#" class="back-to-top">↑ Back to Table</a>
+        </section>
+
+        <!-- NEW YORK INFORMATION SECTION - Displays when user clicks Statue of Liberty image -->
+        <section id="newyork-info" class="info-section">
+            <h3>🗽 New York, USA - Statue of Liberty</h3>
+            <p>
+                <strong>Overview:</strong> The Statue of Liberty is a colossal neoclassical sculpture located on Liberty Island in 
+                New York Harbor. It is a universal symbol of freedom and democracy, and one of the most iconic monuments in the 
+                United States.
+            </p>
+            <p>
+                <strong>History:</strong> A gift from France to the United States, the statue was designed by French sculptor 
+                Frédéric Auguste Bartholdi and dedicated in 1886. It was intended to commemorate the centennial of American 
+                independence and the alliance between France and the United States.
+            </p>
+            <p>
+                <strong>Visitor Experience:</strong> Visitors can take ferries to Liberty Island and explore the statue up close. 
+                Those who are fit can climb to the crown for panoramic views of New York Harbor and the Manhattan skyline. The 
+                statue has welcomed millions of immigrants to America.
+            </p>
+            <a href="#" class="back-to-top">↑ Back to Table</a>
+        </section>
+    </main>
+</body>
+</html>
